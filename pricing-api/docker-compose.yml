@@ -1,0 +1,60 @@
+version: '3'
+services:
+  nginx:
+    build: ./nginx
+    ports:
+      - '80:80'
+    depends_on:
+      - app1
+      # - app2
+      # - app3
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: '4G'
+  db:
+    image: 'postgres:13'
+    environment:
+      POSTGRES_DB: ${DATABASE}
+      POSTGRES_PASSWORD: ${PWDDB}
+    volumes:
+      - 'data:/var/lib/postgresql/data'
+    ports:
+      - ${PORTBD}:5432
+  app1:
+    container_name: pricing-api1
+    restart: always
+    hostname: server1
+    build: .
+    volumes:
+      - ./src:/usr/src/app1/src
+    ports:
+      - '3030:3030'
+    depends_on:
+      - db
+  # app2:
+  #   container_name: pricing-api2
+  #   restart: always
+  #   hostname: server2
+  #   build: .
+  #   volumes:
+  #     - ./src:/usr/src/app2/src
+  #   ports:
+  #     - '3031:3030'
+  #   depends_on:
+  #     - db
+  # app3:
+  #   container_name: pricing-api3
+  #   restart: always
+  #   hostname: server3
+  #   build: .
+  #   volumes:
+  #     - ./src:/usr/src/app3/src
+  #   ports:
+  #     - '3032:3030'
+  #   depends_on:
+  #     - db
+
+volumes:
+  data: null

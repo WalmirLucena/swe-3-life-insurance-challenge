@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgres"
+  url      = env("DATABASE_URL")
+}
+
+model Coverage {
+  coverageId  Int       @id @default(autoincrement())
+  name        String    @unique
+  description String
+  capital     String
+  premium     String
+  deleted     DateTime?
+  quotes      Quote[]
+}
+
+model Occupations {
+  code   Int     @id @unique
+  name   String
+  active Boolean
+  factor Decimal
+  quotes Quote[]
+}
+
+model Quote {
+  id             Int         @id @default(autoincrement())
+  age            Int
+  capital        Int
+  occupation     Occupations @relation(fields: [occupationCode], references: [code])
+  occupationCode Int
+  coverage       Coverage    @relation(fields: [coverageId], references: [coverageId])
+  coverageId     Int
+  premium        Int
+}

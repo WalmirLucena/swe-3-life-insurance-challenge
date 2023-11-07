@@ -1,0 +1,28 @@
+version: '3.5'
+services:
+  db:
+    image: 'postgres:13'
+    environment:
+      POSTGRES_DB: ${DATABASE}
+      POSTGRES_PASSWORD: ${PWDDB}
+    volumes:
+      - 'data:/var/lib/postgresql/data'
+    ports:
+      - ${PORTBD}:5432
+  app:
+    container_name: onboarding-api
+    restart: always
+    build: .
+    volumes:
+      - ./src:/usr/src/app/src
+    ports:
+      - '${PORT}:${PORT}'
+    depends_on:
+      - db
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: '4G'
+volumes:
+  data: null

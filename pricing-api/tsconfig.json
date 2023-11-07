@@ -1,0 +1,24 @@
+{
+   "extends": "./tsconfig.paths.json",
+   "compilerOptions": {
+      "lib": [
+         "es5",
+         "es6"
+      ],
+      "target": "es2017",
+      "module": "commonjs",
+      "resolveJsonModule": true, 
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "typeRoots": ["./src/@types", "./node-modules/@types/"], 
+      "types": ["jest", "node", "@types/jest", "mocha"],  
+      "outDir": "./build",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "forceConsistentCasingInFileNames": true,
+      "isolatedModules": false,
+      "sourceMap": true,
+   },
+   "exclude": ["node_modules"],
+   "include": ["./src/**/*.ts"]
+}
