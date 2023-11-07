@@ -1,6 +1,6 @@
-# Bemol OnBoarding API
+# Pricing API
 
-- Este projeto consiste numa API para cadastro de usuários, listagem de usuários e atualização destes dados. Utiliza conceitos de DDD, Clean Architecture e princípios SOLID. Feito para o processo seletivo de software engineer da Bemol.
+- Este projeto consiste numa API para cadastro de Cobertura de Seguros, atualização destes dados e `soft-delete` das coberturas. Utiliza conceitos de DDD, Clean Architecture e princípios SOLID.
 
 # 🧰 Technologies
 
@@ -11,8 +11,7 @@
   - Docker
   - PostgreSQL
   - Eslint
-  - TypeORM
-- Architecture
+  - Prisma ORM
   - Clean architecture
 
 # 🚀 Como Usar
@@ -20,12 +19,16 @@
 ### 💾 Clone o Repositório
 
 ```
-- git clone git@github.com:WalmirLucena/bemol-onboarding-api.git
+- git clone git@github.com:WalmirLucena/swe-3-life-insurance-challenge.git
 ```
 
 ## Executando o projeto
 
 É recomendável que você utilize o docker e docker-compose para rodar o projeto na sua máquina.
+
+```
+- cd pricing-api
+```
 
 - Subindo os containeres com docker:
 
@@ -35,7 +38,7 @@
 
   O Código acima deve subir o container tanto com a API quanto o Banco de Dados(Postgree)
 
-  📋 Verifique o Servidor em http://localhost:3001
+  📋 Verifique o Servidor em http://localhost:3000
 
 # Como Testar a Api
 
@@ -50,11 +53,3 @@ Para rodar um teste especifico:
 ```
   yarn test nomeDoArquivo
 ```
-
-# Arquitetura do Projeto
-
-![Arquitetura](assets/ArchitectureUML.png)
-
-# Modelo C4 da Solução do Desafio Bemol
-
-![Modelo](assets/UML.PNG)

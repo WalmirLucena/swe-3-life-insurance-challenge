@@ -18,7 +18,10 @@ export const routerExpressAdapter = (controller: IController) => {
       res.status(httpResponse.statusCode).json(httpResponse.body);
     } else {
       res.status(httpResponse.statusCode).json({
-        error: httpResponse.body,
+        error: {
+          code: httpResponse.statusCode,
+          message: httpResponse.body.error.name,
+        },
       });
     }
   };

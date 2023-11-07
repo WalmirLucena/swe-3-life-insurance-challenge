@@ -10,6 +10,6 @@ RUN yarn
 
 COPY . .
 
-EXPOSE 3030
+EXPOSE 3000
 
 CMD ls ; npx prisma generate ; yarn migration:run ; yarn seed ; yarn deploy:localhost

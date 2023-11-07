@@ -41,13 +41,22 @@ Response Payload - HTTP STATUS 201
 }
 ```
 
-Error Response - HTTP STATUS 400 (especificar para cada erro tratado)
+Error Response - HTTP STATUS 400
 
 ```json
 {
-    "error": {
-        "code": <string>,
-        "message": <string>
-    }
+  "error": {
+    "code": 400,
+    "message": "User already exists"
+  }
+}
+```
+
+```json
+{
+  "error": {
+    "code": 400,
+    "message": "The password provided does not meet the minimum security criteria."
+  }
 }
 ```

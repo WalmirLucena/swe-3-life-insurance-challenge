@@ -21,7 +21,7 @@ class LoginUserUseCase implements ILoginUserUseCase {
       username,
     );
     if (!userExists) {
-      return badRequest(new InvalidParamError('Email or password incorrect'));
+      return unauthorized(new InvalidParamError('Email or password incorrect'));
     }
 
     const passwordAuthenticate = await this.hashProvider.compare(

@@ -1,6 +1,6 @@
-# Bemol OnBoarding API
+# Identity API
 
-- Este projeto consiste numa API para cadastro de usuários, listagem de usuários e atualização destes dados. Utiliza conceitos de DDD, Clean Architecture e princípios SOLID. Feito para o processo seletivo de software engineer da Bemol.
+- Este projeto consiste numa API para cadastro de usuários, listagem de usuários e atualização destes dados, além de ser responsável pela autenticação dos usuários e geração do token para utilização na `Pricing API`. Utiliza conceitos de DDD, Clean Architecture e princípios SOLID
 
 # 🧰 Technologies
 
@@ -20,7 +20,7 @@
 ### 💾 Clone o Repositório
 
 ```
-- git clone git@github.com:WalmirLucena/bemol-onboarding-api.git
+- git clone git@github.com:WalmirLucena/swe-3-life-insurance-challenge.git
 ```
 
 ## Executando o projeto
@@ -35,7 +35,7 @@
 
   O Código acima deve subir o container tanto com a API quanto o Banco de Dados(Postgree)
 
-  📋 Verifique o Servidor em http://localhost:3001
+  📋 Verifique o Servidor em http://localhost:3030
 
 # Como Testar a Api
 
@@ -50,11 +50,3 @@ Para rodar um teste especifico:
 ```
   yarn test nomeDoArquivo
 ```
-
-# Arquitetura do Projeto
-
-![Arquitetura](assets/ArchitectureUML.png)
-
-# Modelo C4 da Solução do Desafio Bemol
-
-![Modelo](assets/UML.PNG)

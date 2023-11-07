@@ -26,24 +26,33 @@ Response Payload - HTTP STATUS 200
 }
 ```
 
-Error Response - HTTP STATUS 400 (User not already exists, MissingToken)
+Error Response - HTTP STATUS 400
 
 ```json
 {
-    "error": {
-        "code": <string>,
-        "message": <string>
-    }
+  "error": {
+    "code": 400,
+    "message": "Missing Token"
+  }
 }
 ```
 
-Error Response - HTTP STATUS 401 (You do not have permissions.)
+```json
+{
+  "error": {
+    "code": 400,
+    "message": "User not already exists"
+  }
+}
+```
+
+Error Response - HTTP STATUS 401
 
 ```json
 {
-    "error": {
-        "code": <string>,
-        "message": <string>
-    }
+  "error": {
+    "code": 401,
+    "message": "You do not have permissions."
+  }
 }
 ```

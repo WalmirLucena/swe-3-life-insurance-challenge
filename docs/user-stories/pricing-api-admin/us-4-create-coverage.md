@@ -32,6 +32,7 @@ Essa cobertura garante um pagamento adicional, de mesmo valor, da indenização 
 
 Request Payload
 docker
+
 ```json
 {
     "name": <string>,
@@ -55,13 +56,31 @@ Response Payload - HTTP STATUS 201
 }
 ```
 
-Error Response - HTTP STATUS `???` (especificar para cada erro tratado)
+Error Response - HTTP STATUS 400
 
 ```json
 {
-    "error": {
-        "code": <string>,
-        "message": <string>
-    }
+  "error": {
+    "code": 400,
+    "message": "Coverage Name already exists"
+  }
+}
+```
+
+```json
+{
+  "error": {
+    "code": 400,
+    "message": "The premium provided is not valid."
+  }
+}
+```
+
+```json
+{
+  "error": {
+    "code": 400,
+    "message": "The capital provided is not valid."
+  }
 }
 ```

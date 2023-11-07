@@ -8,14 +8,21 @@ Os campos podem ser atualizados todos ou parcialmente, nesse caso, se o endpoint
 
 Ao editar um item que foi deletado [US-6](./us-6-remove-coverage.md), este deve ser "ativado" novamente, sobrescrevendo o soft delete.
 
-**???** `/coverage/:coverageId`
+**PUT** `/coverage/:coverageId`
 
 Request Payload
+
 ```json
-???
+{
+	 "name": <string>,
+     "description": <string>,
+     "capital": <string>,
+     "premium": <string>,
+}
 ```
 
-Response Payload - HTTP STATUS `???`
+Response Payload - HTTP STATUS `200`
+
 ```json
 {
     "data": {
@@ -28,7 +35,40 @@ Response Payload - HTTP STATUS `???`
 }
 ```
 
-Error Response - HTTP STATUS `???` (especificar para cada erro tratado)
+Error Response - HTTP STATUS `400`
+
 ```json
-???
+{
+  "error": {
+    "code": 400,
+    "message": "The premium provided is not valid."
+  }
+}
+```
+
+```json
+{
+  "error": {
+    "code": 400,
+    "message": "The capital provided is not valid."
+  }
+}
+```
+
+```json
+{
+  "error": {
+    "code": 400,
+    "message": "CoverageId doesnt exists"
+  }
+}
+```
+
+```json
+{
+  "error": {
+    "code": 400,
+    "message": "Coverage Name already exists"
+  }
+}
 ```
